@@ -28,6 +28,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.use("/assests", express.static(path.join(__dirname, "assests")));
+
 // Questions endpoint - serves questions.json
 app.get("/questions", (req, res) => {
   const file = path.join(__dirname, "questions.json");

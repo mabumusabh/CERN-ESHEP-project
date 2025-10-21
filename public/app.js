@@ -59,8 +59,14 @@ function buildGrid() {
     const t = document.createElement("div");
     t.className = "tile";
     t.dataset.index = i;
-    t.textContent = gameState.unlocked[i] ? `#${i+1}` : "🔲";
+
+    // Set image for tile
+    t.style.backgroundImage = `url('/assests/image_part_00${i + 1}.jpg')`;
+    t.style.backgroundSize = "cover"; 
+    t.style.backgroundPosition = "center";
+    t.style.opacity = gameState.unlocked[i] ? 1 : 0.2; // faded if locked
     if (gameState.unlocked[i]) t.classList.add("revealed");
+
     t.addEventListener("click", () => onTileClick(i));
     gridEl.appendChild(t);
   }

@@ -1,0 +1,57 @@
+[
+    {
+      "id": 0,
+      "title": "How many flavors of neutrinos are there?",
+      "choices": ["2", "3", "4", "Too many to count"],
+      "correctIndex": 1
+    },
+    {
+      "id": 1,
+      "title": "What property of the neutrinos allow them to change from a flavor to the other?",
+      "choices": ["Spin", "Mass", "Oscillation", "Charge"],
+      "correctIndex": 2
+    },
+    {
+      "id": 2,
+      "title": "Which experiment first confirmed the existence of neutrinos?",
+      "choices": ["LHC", "ICE CUBE", "Fermilab Tevatron", "Super-Kamiokande"],
+      "correctIndex": 3
+    },
+    {
+      "id": 3,
+      "title": "Why it is so hard to detect neutrinos?",
+      "choices": ["They weakly interact with matter", "They are super heavy", "They like to mind their business", "They travel faster than light"],
+      "correctIndex": 0
+    },
+    {
+      "id": 4,
+      "title": "Who first came up with the idea of neutrinos?",
+      "choices": ["Paul Dirac", "Wolfgang Pauli", "Glen Cowan", "I did!"],
+      "correctIndex": 1
+    },
+    {
+      "id": 5,
+      "title": "?",
+      "choices": ["", "Indian", "Arctic", "Pacific"],
+      "correctIndex": 3
+    },
+    {
+      "id": 6,
+      "title": "Neutrinos are considered 'massless'. Which experimental observation confirmed that they have a nonzero mass?",
+      "choices": ["Beta decay", "Atmospheric neutrinos oscillation", "Dark matter", "Cosmic microawave background"],
+      "correctIndex": 1
+    },
+    {
+      "id": 7,
+      "title": "Which neutrino is produced in the beta decay?",
+      "choices": ["What is Beta Decay?", "tau neutrino", "muon neutrino", "electron neutrino"],
+      "correctIndex": 3
+    },
+    {
+      "id": 8,
+      "title": "What produces the largest flux of neutrinos detected on earth?",
+      "choices": ["The sun", "Oceans", "Nuclear Reactors", "There are no neutrios! Its a propaganda!"],
+      "correctIndex": 0
+    }
+  ]
+  

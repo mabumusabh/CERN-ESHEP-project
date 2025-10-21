@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Once Upon a Neutrino</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Once Upon a Neutrino</h1>
+
+    <div class="controls">
+      <input id="username" type="text" placeholder="Enter username" />
+      <button id="startBtn">Start Game</button>
+      <div id="timer">00:00.000</div>
+      <div id="status">Tiles unlocked: <span id="tilesCount">0</span>/9</div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+
+    <div id="resultPanel" class="panel hidden">
+      <h2>Finished!</h2>
+      <p>Your time: <span id="finalTime"></span></p>
+      <button id="viewLeaderboard">View leaderboard</button>
+    </div>
+
+    <div id="leaderboardPanel" class="panel hidden">
+      <h2>Leaderboard (Top 10)</h2>
+      <ol id="leaderboardList"></ol>
+      <button id="closeLb">Close</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="qTitle"></h3>
+      <div id="choices"></div>
+      <div id="qFeedback"></div>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

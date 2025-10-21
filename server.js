@@ -58,17 +58,18 @@ app.post("/submit", (req, res) => {
 // Leaderboard - top by fastest time but only full-completes (tiles_unlocked === 9)
 // you can change or expand criteria as desired
 app.get("/leaderboard", (req, res) => {
-  const limit = parseInt(req.query.limit || "10", 10);
-  db.all(
-    `SELECT username, time_ms, tiles_unlocked, created_at FROM scores WHERE tiles_unlocked = 9 ORDER BY time_ms ASC, created_at ASC LIMIT ?`,
-    [limit],
-    (err, rows) => {
-      if (err) return res.status(500).json({ error: "DB read failed." });
-      res.json(rows);
-    }
-  );
-});
-
+    db.all(
+      `SELECT username, time_ms, tiles_unlocked, created_at 
+       FROM scores 
+       WHERE tiles_unlocked = 9 
+       ORDER BY time_ms ASC, created_at ASC`,
+      (err, rows) => {
+        if (err) return res.status(500).json({ error: "DB read failed." });
+        res.json(rows);
+      }
+    );
+  });
+  
 // Fallback - serve frontend index for SPA route
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

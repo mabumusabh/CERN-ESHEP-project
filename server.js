@@ -73,6 +73,38 @@ app.get("/leaderboard", (req, res) => {
     );
   });
   
+
+// Leaderboard - top by fastest time but only full-completes (tiles_unlocked === 9)
+app.get("/leaderboard", (req, res) => {
+    db.all(
+      `SELECT username, time_ms, tiles_unlocked, created_at 
+       FROM scores 
+       WHERE tiles_unlocked = 9 
+       ORDER BY time_ms ASC, created_at ASC`,
+      (err, rows) => {
+        if (err) return res.status(500).json({ error: "DB read failed." });
+        res.json(rows);
+      }
+    );
+  });
+  
+  // ⚠️ Temporary admin reset route — REMOVE after use
+  app.get("/admin/reset", (req, res) => {
+    const secret = req.query.secret;
+    if (secret !== "clear123") {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+    db.run("DELETE FROM scores", err => {
+      if (err) return res.status(500).json({ error: "Failed to clear leaderboard." });
+      res.json({ ok: true, message: "Leaderboard cleared." });
+    });
+  });
+    
+  // Fallback - serve frontend index for SPA route
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
+  
 // Fallback - serve frontend index for SPA route
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

@@ -12,6 +12,7 @@
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    padding: 0;
   }
   
   .container {
@@ -21,7 +22,7 @@
     padding: 20px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(20,20,60,0.08);
+    box-shadow: 0 6px 20px rgba(20, 20, 60, 0.08);
   }
   
   .controls {
@@ -70,6 +71,8 @@
     font-size: 18px;
     color: #444;
     user-select: none;
+    background-size: cover;
+    background-position: center;
   }
   
   .tile.revealed {
@@ -86,7 +89,9 @@
     background: #f1f8ff;
   }
   
-  .hidden { display: none; }
+  .hidden {
+    display: none !important; /* force hiding */
+  }
   
   /* Modal */
   .modal {
@@ -95,7 +100,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(10,10,30,0.45);
+    background: rgba(10, 10, 30, 0.45);
     z-index: 999;
   }
   
@@ -125,30 +130,53 @@
     cursor: default;
   }
   
-  #qFeedback { margin-top: 8px; font-weight: bold; }
+  #qFeedback {
+    margin-top: 8px;
+    font-weight: bold;
+  }
   
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
+  /* Make tiles flexible and perfectly square */
+  .grid {
     justify-content: center;
-    z-index: 1000;
+    margin: 16px auto;
   }
   
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 90%;
+  .tile {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: var(--tile-size);
   }
   
-  .hidden {
-    display: none !important; /* force hiding */
+  /* Responsive layout for mobile */
+  @media (max-width: 600px) {
+    :root {
+      --tile-size: 90px;
+      --gap: 6px;
+    }
+  
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      width: 100%;
+      max-width: 360px;
+      padding: 12px;
+    }
+  
+    .controls {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    #username,
+    #startBtn {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    #timer {
+      font-size: 14px;
+    }
   }
   
